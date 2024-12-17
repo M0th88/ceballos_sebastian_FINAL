@@ -66,11 +66,8 @@
                 <td>{{ institucion.id }}</td>
                 <td>{{ institucion.nombre }}</td>
                 <td>
-                    <!-- Botón Eliminar -->
-                    <form method="post" action="{% url 'institucion_delete' institucion.id %}" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                    </form>
+                    
+                    
                 </td>
             </tr>
             {% empty %}
