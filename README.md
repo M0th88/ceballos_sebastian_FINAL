@@ -27,11 +27,5 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado lo siguiente:
 
 ---
 
-## **Instalación y Configuración ⚙️**
-
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/tu-usuario/sistema-inscripciones.git
-   cd sistema-inscripciones
 
 
