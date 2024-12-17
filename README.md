@@ -28,4 +28,6 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado lo siguiente:
 ---
 
 
-
+Sebastián Ceballos 
+Analista Programador 💻
+ 
