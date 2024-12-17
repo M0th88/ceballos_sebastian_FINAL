@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Eliminar Inscrito{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #121212; /* Fondo oscuro */
+        color: #f5f5f5; /* Texto claro */
+    }
+
+    .container {
+        background-color: #1E1E1E; /* Fondo del contenedor */
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        max-width: 600px;
+    }
+
+    h1 {
+        color: #E74C3C; /* Rojo para destacar advertencia */
+    }
+
+    p {
+        color: #f5f5f5; /* Texto blanco */
+        font-size: 1.2rem;
+    }
+
+    .btn-custom {
+        color: #fff !important; /* Texto blanco */
+        border: none;
+    }
+
+    .btn-delete {
+        background-color: #E74C3C; /* Rojo */
+    }
+
+    .btn-cancel {
+        background-color: #7F8C8D; /* Gris */
+    }
+
+    .btn-back {
+        background-color: #34495E; /* Azul grisáceo */
+    }
+</style>
+
+<div class="container mt-5 text-center">
+    <!-- Encabezado -->
+    <h1 class="mb-4">Eliminar Inscrito</h1>
+    <p>¿Estás seguro de que deseas eliminar el inscrito <strong>"{{ object.nombre }}"</strong>?</p>
+
+    <!-- Formulario de eliminación -->
+    <form method="post" class="d-inline">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-custom btn-delete me-2">Eliminar</button>
+        <a href="{% url 'inscrito_list' %}" class="btn btn-custom btn-cancel">Cancelar</a>
+    </form>
+
+    <!-- Botón adicional para regresar al inicio -->
+    <div class="mt-4">
+        <a href="{% url 'index' %}" class="btn btn-custom btn-back">Volver al Inicio</a>
+    </div>
+</div>
+{% endblock %}

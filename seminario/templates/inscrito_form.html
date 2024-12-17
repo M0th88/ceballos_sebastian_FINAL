@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Agregar Inscrito{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #121212; /* Fondo oscuro */
+        color: #f5f5f5; /* Texto claro */
+    }
+
+    .container {
+        background-color: #1E1E1E; /* Fondo del contenedor */
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        max-width: 600px;
+    }
+
+    h1 {
+        color: #ffffff;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Campos del formulario */
+    .form-control {
+        background-color: #333; /* Fondo oscuro de los campos */
+        color: #f5f5f5; /* Texto claro */
+        border: 1px solid #555; /* Borde sutil */
+        border-radius: 6px;
+    }
+
+    .form-control:focus {
+        background-color: #444; /* Fondo más claro al enfocar */
+        border-color: #27AE60; /* Borde verde */
+        color: #fff;
+        box-shadow: none;
+    }
+
+    label {
+        font-weight: bold;
+        color: #d1d1d1; /* Color suave */
+        margin-bottom: 5px;
+    }
+
+    /* Botones */
+    .btn-custom {
+        color: #fff !important;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+    }
+
+    .btn-save {
+        background-color: #27AE60; /* Verde éxito */
+    }
+
+    .btn-save:hover {
+        background-color: #219150; /* Verde más oscuro */
+    }
+
+    .btn-back {
+        background-color: #7F8C8D; /* Gris */
+    }
+
+    .btn-back:hover {
+        background-color: #6b7577;
+    }
+
+</style>
+
+<div class="container mt-5">
+    <!-- Encabezado -->
+    <h1>Agregar Nuevo Inscrito</h1>
+
+    <!-- Formulario -->
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.as_p }}
+        </div>
+
+        <!-- Botones -->
+        <div class="d-flex justify-content-between mt-4">
+            <button type="submit" class="btn btn-custom btn-save">Guardar</button>
+            <a href="{% url 'inscrito_list' %}" class="btn btn-custom btn-back">Volver</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

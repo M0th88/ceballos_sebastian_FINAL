@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Instituciones{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #121212; /* Fondo oscuro */
+        color: #f5f5f5; /* Texto claro */
+    }
+
+    .container {
+        background-color: #1E1E1E; /* Fondo del contenedor */
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+        color: #ffffff; /* Título blanco */
+    }
+
+    .btn-custom {
+        color: #fff !important; /* Texto blanco */
+        border: none;
+    }
+
+    .btn-back {
+        background-color: #7F8C8D; /* Botón de regreso - Gris */
+    }
+
+    .btn-danger {
+        background-color: #E74C3C !important; /* Botón de eliminar - Rojo */
+    }
+
+    .table-dark {
+        background-color: #2C3E50 !important; /* Encabezado oscuro */
+        color: #ffffff; /* Texto blanco */
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #2C3E50; /* Efecto hover en filas */
+        color: #f1f1f1;
+    }
+</style>
+
+<div class="container mt-5">
+    <!-- Encabezado con Botón de Regreso -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Lista de Instituciones</h1>
+        <a href="{% url 'index' %}" class="btn btn-custom btn-back">Volver al Inicio</a>
+    </div>
+
+    <!-- Tabla de Instituciones -->
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acciones</th> <!-- Nueva columna para botones -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for institucion in instituciones %}
+            <tr>
+                <td>{{ institucion.id }}</td>
+                <td>{{ institucion.nombre }}</td>
+                <td>
+                    <!-- Botón Eliminar -->
+                    <form method="post" action="{% url 'institucion_delete' institucion.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="text-center text-muted">No hay instituciones registradas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

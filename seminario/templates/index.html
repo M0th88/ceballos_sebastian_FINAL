@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #121212; /* Fondo oscuro */
+        color: #f5f5f5; /* Texto claro */
+    }
+
+    .container {
+        background-color: #1E1E1E; /* Contenedor con un gris oscuro */
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    h1, p {
+        color: #ffffff; /* Títulos y párrafos en blanco */
+    }
+
+    .btn-custom {
+        color: #fff !important; /* Texto blanco */
+        border: none; /* Elimina los bordes */
+    }
+
+    /* Colores sobrios para botones */
+    .btn-inscritos {
+        background-color: #2C3E50; /* Azul oscuro */
+    }
+
+    .btn-instituciones {
+        background-color: #34495E; /* Azul grisáceo */
+    }
+
+    .btn-autor {
+        background-color: #7F8C8D; /* Gris medio */
+    }
+
+    .btn-api-inscritos {
+        background-color: #95A5A6; /* Gris claro */
+    }
+
+    .btn-api-instituciones {
+        background-color: #BDC3C7; /* Gris más claro */
+        color: #333 !important; /* Texto oscuro */
+    }
+</style>
+
+<div class="container text-center mt-5">
+    <!-- Encabezado -->
+    <div class="py-4 mb-4 bg-dark text-white rounded">
+        <h1 class="display-4">Sistema de Inscripciones</h1>
+        <p class="lead">Gestiona tus inscritos e instituciones de manera eficiente</p>
+    </div>
+
+    <!-- Botones -->
+    <div class="row justify-content-center g-4">
+        <!-- Ver Inscritos -->
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'inscrito_list' %}" class="btn btn-custom btn-inscritos btn-lg w-100">
+                Ver Inscritos
+            </a>
+        </div>
+
+        <!-- Ver Instituciones -->
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'institucion_list' %}" class="btn btn-custom btn-instituciones btn-lg w-100">
+                Ver Instituciones
+            </a>
+        </div>
+
+        <!-- API del Autor -->
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'autor_info' %}" class="btn btn-custom btn-autor btn-lg w-100">
+                API del Autor
+            </a>
+        </div>
+
+        <!-- API de Inscritos -->
+        <div class="col-md-4 mb-3">
+            <a href="/api/inscritos/" class="btn btn-custom btn-api-inscritos btn-lg w-100">
+                API de Inscritos
+            </a>
+        </div>
+
+        <!-- API de Instituciones -->
+        <div class="col-md-4 mb-3">
+            <a href="/api/instituciones/" class="btn btn-custom btn-api-instituciones btn-lg w-100">
+                API de Instituciones
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-5 text-muted small">
+        <p>&copy; 2024 Sistema de Inscripciones | Diseñado con ❤ usando Django y Bootstrap</p>
+    </div>
+</div>
+{% endblock %}
